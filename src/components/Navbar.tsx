@@ -1,19 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import logo from "../../public/logo.png"; // Adjust the path if necessary
+import logo from "../../public/logo.png"; // Sesuaikan path jika perlu
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
     setIsOpen((prev) => !prev);
-  };
-
-  const handleSwipe = (e: TouchEvent) => {
-    if (e.changedTouches[0].clientX > 100) {
-      setIsOpen(true);
-    }
   };
 
   const handleOutsideClick = (e: MouseEvent) => {
@@ -24,49 +18,108 @@ const Navbar: React.FC = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("touchend", handleSwipe);
     document.addEventListener("click", handleOutsideClick);
 
     return () => {
-      window.removeEventListener("touchend", handleSwipe);
       document.removeEventListener("click", handleOutsideClick);
     };
   }, [isOpen]);
 
   return (
     <div>
-      {/* Toggle Button */}
-      <button
-        className="md:hidden p-4 z-50"
-        onClick={handleToggle}
-        aria-label="Toggle Menu"
-      >
-        <svg
-          className="w-6 h-6 text-black"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M4 6h16M4 12h16m-7 6h7"
-          ></path>
-        </svg>
-      </button>
-
+      <div className="flex border justify-between items-center px-3 py-2">
+        {/* Tombol Toggle */}
+        {!isOpen && (
+          <button
+            className="md:hidden p-4 z-50 relative"
+            onClick={handleToggle}
+            aria-label="Toggle Menu"
+          >
+            <svg
+              className="w-6 h-6 text-black"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
+        )}
+        <span>
+          <Image src={logo} alt="Online Store Logo" width={100} height={50} />
+        </span>
+        <div className="hidden md:flex items-center space-x-8">
+          <a href="/home" className="text-gray-900 hover:text-primary">
+            Home
+          </a>
+          <a href="/products" className="text-gray-900 hover:text-primary">
+            Products
+          </a>
+          <a href="/about" className="text-gray-900 hover:text-primary">
+            About
+          </a>
+          <a href="/cart" className="text-gray-900 hover:text-primary">
+            Cart
+          </a>
+        </div>
+        <div className="flex items-center space-x-4">
+          <button aria-label="Search">
+            <svg
+              className="w-6 h-6 text-black"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M21 21l-4.35-4.35m1.35-5.65a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </button>
+          <button aria-label="Cart">
+            <svg
+              className="w-6 h-6 text-black"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.6 8M17 13l1.6 8M9 21h6"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      {/* Overlay untuk Latar Belakang */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-20"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
       {/* Navbar */}
       <nav
         id="navbar"
         className={`${
-          isOpen ? "block" : "hidden"
-        } md:flex md:justify-between md:items-center bg-primary md:bg-white p-4 fixed left-0 top-0 h-full w-6/12 md:h-auto md:w-full z-40 md:fixed`}
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } transform md:transform-none fixed left-0 top-0 h-full w-6/12 bg-primary text-white md:static md:h-auto md:w-full z-30 transition-transform duration-300 md:hidden`}
       >
-        {/* Close Button */}
+        {/* Tombol Close */}
         <button
-          className="md:hidden p-4 absolute top-0 left-0"
+          className="md:hidden p-4 absolute top-4 left-4 z-40"
           onClick={handleToggle}
           aria-label="Close Menu"
         >
@@ -85,10 +138,7 @@ const Navbar: React.FC = () => {
             ></path>
           </svg>
         </button>
-        <span>
-          <Image src={logo} alt="Online Store Logo" width={100} height={50} />
-        </span>
-        <ul className="flex flex-col md:flex-row md:space-x-4">
+        <ul className="flex flex-col space-y-4 mt-10 px-4">
           <li>
             <a href="/home" className="text-gray-900 hover:text-primary">
               Home
@@ -116,3 +166,4 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
