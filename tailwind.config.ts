@@ -12,6 +12,7 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: "#DA4901",
+        hytam: "#121212",
       },
     },
   },
