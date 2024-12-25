@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
           <h1 className="px-2 mt-6 text-lg font-semibold md:text-xl text-gray-100">
             Waktu Beroperasi
           </h1>
-          <hr className="w-48 mx-6 border-primary" />
+          <hr className="w-48 mx-2  border-primary" />
           <p className="px-2 mt-4 text-gray-100">
             Senin-Jumat: 08.00-17.00
             <br />
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
           <h1 className="px-2 mt-4 text-lg md:text-lg font-semibold  text-gray-100">
             Tentang Opak Sampeu Sutra
           </h1>
-          <hr className="mx-6 w-72 border-primary" />
+          <hr className="mx-2 w-72 border-primary" />
           <p className="px-2 mt-4 text-gray-100">
             Opak Sampeu didirikan pada November 2022 oleh seorang lulusan
             program tata boga yang berinovasi menciptakan opak singkong dengan
@@ -38,15 +38,34 @@ const Footer: React.FC = () => {
           <h1 className="px-2 mt-6 text-lg md:text-lg font-semibold text-gray-100">
             Hubungi Kami
           </h1>
-          <hr className="w-40 mx-6 border-primary" />
+          <hr className="w-40 mx-2 border-primary" />
 
           <p className="px-2 mt-4 text-gray-100">
-            KOMP. POLRI SUKAGALIH NO.1, Desa/Kelurahan Cipedes, Kec. Sukajadi,
-            Kota Bandung, Provinsi Jawa Barat
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=KOMP.+POLRI+SUKAGALIH+NO.1,+Desa+Kelurahan+Cipedes,+Kec.+Sukajadi,+Kota+Bandung,+Provinsi+Jawa+Barat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-400 hover:underline"
+            >
+              KOMP. POLRI SUKAGALIH NO.1, Desa/Kelurahan Cipedes, Kec. Sukajadi,
+              Kota Bandung, Provinsi Jawa Barat
+            </a>
             <br />
-            Telp: +62 821-2909-1953
+            <a
+              href="https://wa.me/6282129091953"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-400 hover:underline"
+            >
+              Telp: +62 821-2909-1953
+            </a>
             <br />
-            Email: opaksampeusutra@gmail.com
+            <a
+              href="mailto:opaksampeusutra@gmail.com"
+              className="hover:text-blue-400 hover:underline"
+            >
+              Email: opaksampeusutra@gmail.com
+            </a>
           </p>
         </div>
       </div>

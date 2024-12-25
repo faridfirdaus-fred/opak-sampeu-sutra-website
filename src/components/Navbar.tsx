@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import logo from "../../public/logo.png"; // Sesuaikan path jika perlu
 
 const Navbar: React.FC = () => {
@@ -55,18 +56,18 @@ const Navbar: React.FC = () => {
           <Image src={logo} alt="Online Store Logo" width={100} height={50} />
         </span>
         <div className="hidden md:flex items-center space-x-8">
-          <a href="/home" className="text-gray-900 hover:text-primary">
+          <Link href="/" className="text-gray-900 hover:text-primary">
             Home
-          </a>
-          <a href="/products" className="text-gray-900 hover:text-primary">
+          </Link>
+          <Link href="/products" className="text-gray-900 hover:text-primary">
             Products
-          </a>
-          <a href="/about" className="text-gray-900 hover:text-primary">
+          </Link>
+          <Link href="/about" className="text-gray-900 hover:text-primary">
             About
-          </a>
-          <a href="/cart" className="text-gray-900 hover:text-primary">
+          </Link>
+          <Link href="/cart" className="text-gray-900 hover:text-primary">
             Cart
-          </a>
+          </Link>
         </div>
         <div className="flex items-center space-x-4">
           <button aria-label="Search">
@@ -140,24 +141,24 @@ const Navbar: React.FC = () => {
         </button>
         <ul className="flex flex-col space-y-4 mt-10 px-4">
           <li>
-            <a href="/home" className="text-gray-900 hover:text-primary">
+            <Link href="/" className="text-gray-900 hover:text-primary">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/products" className="text-gray-900 hover:text-primary">
+            <Link href="/products" className="text-gray-900 hover:text-primary">
               Products
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/about" className="text-gray-900 hover:text-primary">
+            <Link href="/about" className="text-gray-900 hover:text-primary">
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/cart" className="text-gray-900 hover:text-primary">
+            <Link href="/cart" className="text-gray-900 hover:text-primary">
               Cart
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
